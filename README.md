@@ -40,9 +40,11 @@ Mariana dispõe de 9 alimentos, que serão divididos em 3 grupos, de acordo com 
 Quando Mariana fornecer uma determinada meta de consumo calórico, o sistema deverá fornecer uma dieta, que consiste em **todas as combinações possíveis entre 1 elemento de cada grupo que não extrapole essa meta**
 
 **Exemplo:**
+
 **Meta de Consumo Calórico:** 670.0 Kcal
 
 **Dietas possíveis:** Batata frita, arroz e leite desnatado | Batata frita, arroz e banana
+
 
 Mariana deverá ser capaz ao utilizar o sistema de:
 - Cadastrar seus clientes
