@@ -10,7 +10,16 @@ public class Consulta {
     private String sensacao;
     private Cliente paciente;
     private Double qtdCalorias;
-    private String dieta;
+    
+    public Consulta() {
+        this.paciente = null;
+        this.data = null;
+        this.horario = null;
+        this.peso = null;
+        this.percGordura = null;
+        this.sensacao = null;
+        this.qtdCalorias = null;
+    }
 
     public Consulta(Cliente paciente, Date data, String horario, Double peso, Double percGordura, String sensacao, Double qtdCalorias) {
         this.paciente = paciente;
@@ -20,7 +29,6 @@ public class Consulta {
         this.percGordura = percGordura;
         this.sensacao = sensacao;
         this.qtdCalorias = qtdCalorias;
-        this.dieta = "";
     }
 
 
@@ -80,14 +88,5 @@ public class Consulta {
     public void setQtdCalorias(Double qtdCalorias) {
         this.qtdCalorias = qtdCalorias;
     }
-    
-    public String getDieta() {
-        return dieta;
-    }
-
-    public void setDieta(String dieta) {
-        this.dieta = dieta;
-    }
-    
     
 }

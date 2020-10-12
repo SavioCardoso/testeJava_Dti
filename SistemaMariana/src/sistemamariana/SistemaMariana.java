@@ -19,7 +19,6 @@ public class SistemaMariana {
         exibirMenu();
     }
     
-    //Metodo de exibicao e navegacao no menu principal
     public static void exibirMenu(){
         int opcao = 0;
        
@@ -58,10 +57,10 @@ public class SistemaMariana {
                     break;
                 }
             }}while(opcao != 6);
+        	System.exit(0);
             
     }
     
-    //Metodo de cadastro de clientes
     public static void cadastrarCliente() {
         //Cadastro de Clientes
         System.out.println("======== CADASTRO DE CLIENTES ========");
@@ -88,7 +87,6 @@ public class SistemaMariana {
         listaCliente.add(cliente);
     }
     
-    //Metodo de visualizacao dos clientes cadastrados
     public static void visualizarCliente(){
         System.out.println("======== CLIENTES CADASTRADOS ========");
         listaCliente.forEach(cliente -> {
@@ -102,7 +100,6 @@ public class SistemaMariana {
         });
     }
     
-    //Metodo de cadastro de consultas realizadas
     public static void cadastrarConsulta(){
         
         //Cadastrar Consulta
@@ -135,9 +132,6 @@ public class SistemaMariana {
         //Settando Objeto consulta
         Consulta consulta = new Consulta(paciente, dataConsulta, horarioConsulta, pesoPaciente, gorduraCorporalPaciente, sensacaoPaciente, caloriasPaciente);
         
-        //Chamando metodo de calculo de dieta, baseado na quantidade de calorias por refeicao do paciente, descrito nessa consulta
-        calculoDieta(consulta);
-        
         //Adicionando Objeto consulta na Lista listaConsulta
         listaConsulta.add(consulta);
         
@@ -151,7 +145,6 @@ public class SistemaMariana {
         cadastrarConsulta();
     }
     
-    //Metodo de visualizacao de consultas cadastradas
     public static void visualizarConsulta(){
         System.out.println("======== CONSULTAS CADASTRADAS =======");
         System.out.println("======================================");
@@ -165,53 +158,57 @@ public class SistemaMariana {
             System.out.println("Calorias: " + consulta.getQtdCalorias() + " Kcal");
             System.out.println("--------------------------------------");
             System.out.println("Dietas possiveis: ");
-            System.out.println(consulta.getDieta());
+            calculoDieta(consulta);
             System.out.println("======================================");
         });
     }
     
-    //Metodo de visualizacao de alimentos
     public static void visualizarAlimentos(){
     	setAlimentos();
         System.out.println("======== Alimentos do Grupo 1 ========");
-        listaGrupo1.forEach(alimento ->{
-            System.out.println("Nome: " + alimento.getNome());
-            System.out.println("Calorias: " + alimento.getCalorias());
+        listaGrupo1.forEach(alimento1 ->{
+            System.out.println("Nome: " + alimento1.getNome());
+            System.out.println("Calorias: " + alimento1.getCalorias());
             System.out.println("======================================");
         });
         
         System.out.println("======== Alimentos do Grupo 2 ========");
-        listaGrupo2.forEach(alimento -> {
-            System.out.println("Nome: " + alimento.getNome());
-            System.out.println("Calorias: " + alimento.getCalorias());
+        listaGrupo2.forEach(alimento2 -> {
+            System.out.println("Nome: " + alimento2.getNome());
+            System.out.println("Calorias: " + alimento2.getCalorias());
             System.out.println("======================================");
         });
         
         System.out.println("======== Alimentos do Grupo 3 ========");
-        listaGrupo3.forEach(alimento -> {
-            System.out.println("Nome: " + alimento.getNome());
-            System.out.println("Calorias: " + alimento.getCalorias());
+        listaGrupo3.forEach(alimento3 -> {
+            System.out.println("Nome: " + alimento3.getNome());
+            System.out.println("Calorias: " + alimento3.getCalorias());
             System.out.println("======================================");
         });
     }
     
-    //Metodo de calculo de dietas possiveis
-    public static void calculoDieta(Consulta consulta){
-    	setAlimentos();	
-    	System.out.println(consulta.getQtdCalorias());
+    public static List<String> calculoDieta(Consulta consulta){
+    	setAlimentos();
+        List<String> listaDieta = new ArrayList<>();
+        
         listaGrupo3.forEach(alimento3 ->{
             listaGrupo2.forEach(alimento2 -> {
                 listaGrupo1.forEach(alimento1 -> {
                     if (alimento3.getCalorias() + alimento2.getCalorias() + alimento1.getCalorias() <= consulta.getQtdCalorias()){
-                        consulta.setDieta(consulta.getDieta() + alimento3.getNome() + ", " + alimento2.getNome() + ", " + alimento1.getNome() + "\n");
+                        String elementoDieta = (alimento3.getNome() + ", " + alimento2.getNome() + ", " + alimento1.getNome() + "\n");
+                        if(listaDieta.contains(elementoDieta) == false) {
+                        	listaDieta.add(elementoDieta);
+                        }
                     }
                 });
             });
         });
+        listaDieta.forEach(dieta -> {
+        	System.out.println(dieta);
+        });
+        return listaDieta;
     }
      
-    
-    //Metodo de validacao de email
     public static boolean validacaoEmail(String email) {
         boolean isEmailIdValido = false;
         if (email != null && email.length() > 0) {
@@ -225,7 +222,6 @@ public class SistemaMariana {
         return isEmailIdValido;
     }
     
-    //Metodo de validacao de telefone
     public static boolean validacaoTelefone(String telefone) {
         boolean isTelefoneValido = false;
         if(telefone.length() > 7 && telefone.length() < 15){
@@ -265,7 +261,13 @@ public class SistemaMariana {
     public static String receberEndereco(){
         System.out.println("Digite o endereco do cliente: ");
         String enderecoCliente = (tec.nextLine());
-        return enderecoCliente;
+        if(enderecoCliente.isEmpty()) {
+            System.out.println("================ ERRO ================");
+            System.out.println("======================================");
+            System.out.println("Campo nome vazio, digite um endereco valido");
+            System.out.println("======================================");
+            return receberEndereco();
+        } return enderecoCliente;
     }
     
     public static String receberTelefone(){
@@ -381,20 +383,21 @@ public class SistemaMariana {
     public static Double receberPesoPaciente(){
         System.out.println("Peso do paciente: ");
         String pesoPaciente = tec.nextLine();
-        if(pesoPaciente.matches("[0-9]+")){
+        //Verifica se existem somente números e "." na String
+        if(pesoPaciente.matches("^(-?)(0|([1-9][0-9]*))(\\.[0-9]+)?$")){
             if(Double.parseDouble(pesoPaciente) > 0){
                return Double.parseDouble(pesoPaciente);
             }else{
                 System.out.println("================ ERRO ================");
                 System.out.println("======================================");
-                System.out.println("Digite um peso acima de 0");
+                System.out.println("Digite um peso maior que 0");
                 System.out.println("======================================");
                 return receberPesoPaciente();
             }
         }else{
             System.out.println("================ ERRO ================");
             System.out.println("======================================");
-            System.out.println("Digite apenas numero no campo peso");
+            System.out.println("Digite apenas numeros no campo de peso");
             System.out.println("======================================");
             return receberPesoPaciente();
         }
@@ -403,7 +406,8 @@ public class SistemaMariana {
     public static Double receberGorduraCorporalPaciente(){
         System.out.println("Porcentagem de gordura corporal do paciente: ");
         String gorduraCorporal = tec.nextLine();
-        if(gorduraCorporal.matches("[0-9]+")){
+        //Verifica se existem somente números e "." na String
+        if(gorduraCorporal.matches("^(-?)(0|([1-9][0-9]*))(\\.[0-9]+)?$")){
             if(Double.parseDouble(gorduraCorporal) > 0 && Double.parseDouble(gorduraCorporal) < 100){
                return Double.parseDouble(gorduraCorporal);
             }else{
@@ -416,7 +420,7 @@ public class SistemaMariana {
         }else{
             System.out.println("================ ERRO ================");
             System.out.println("======================================");
-            System.out.println("Digite apenas numero no campo de porcentagem");
+            System.out.println("Digite apenas numeros no campo de porcentagem");
             System.out.println("======================================");
             return receberGorduraCorporalPaciente();
         }
@@ -437,7 +441,8 @@ public class SistemaMariana {
     public static Double receberCaloriasPaciente(){
         System.out.println("Calorias por refeicao do paciente: ");
         String caloriasPaciente = tec.nextLine();
-        if(caloriasPaciente.matches("[0-9]+")){
+        //Verifica se existem somente números e "." na String
+        if(caloriasPaciente.matches("^(-?)(0|([1-9][0-9]*))(\\.[0-9]+)?$")){
             if(Double.parseDouble(caloriasPaciente) > 0){
                return Double.parseDouble(caloriasPaciente);
             }else{
@@ -450,13 +455,17 @@ public class SistemaMariana {
         }else{
             System.out.println("================ ERRO ================");
             System.out.println("======================================");
-            System.out.println("Digite apenas numero no campo de caloria");
+            System.out.println("Digite apenas numeros no campo de caloria");
             System.out.println("======================================");
             return receberCaloriasPaciente();
         }
     }
     
     public static void setAlimentos() {
+    	//Verifica se as listas estão vazias
+    	if(listaGrupo1.size() != 0 && listaGrupo2.size() != 0 && listaGrupo3.size() != 0) {
+    		return;
+    	}
         listaGrupo1.add(new Alimentos("Leite desnatado", 50.0));
         listaGrupo1.add(new Alimentos("Banana", 60.0));
         listaGrupo1.add(new Alimentos("Iogurte", 100.0));
@@ -467,6 +476,5 @@ public class SistemaMariana {
         listaGrupo3.add(new Alimentos("Chocolate", 500.0));
         listaGrupo3.add(new Alimentos("Pizza", 900.0));
     }
-    
 }
 

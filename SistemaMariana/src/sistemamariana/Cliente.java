@@ -14,7 +14,14 @@ public class Cliente{
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     
     //Método contrutor
-
+    public Cliente() {
+    	this.nome = null;
+    	this.email = null;
+    	this.endereco = null;
+    	this.telefone = null;
+    	this.dataNascimento = null;
+    }
+    
     public Cliente(String nome, String endereco, String telefone, String email, Date dataNascimento) {
         this.nome = nome;
         this.endereco = endereco;
