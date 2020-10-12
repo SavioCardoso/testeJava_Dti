@@ -4,7 +4,7 @@ Sistema em Java que faz o gerenciamento de um consultório de nutrição
 ## Autor
 Desenvolvido por Sávio Cardoso em um processo seletivo para a [dti](https://dtidigital.com.br/)
 
-## Linguagen
+## Linguagem
 Sistema Desenvolvido em Java, utilizando o framework JUnit
 
 ## Premissas Assumidas
@@ -41,6 +41,7 @@ Quando Mariana fornecer uma determinada meta de consumo calórico, o sistema dev
 
 **Exemplo:**
 **Meta de Consumo Calórico:** 670.0 Kcal
+
 **Dietas possíveis:** Batata frita, arroz e leite desnatado | Batata frita, arroz e banana
 
 Mariana deverá ser capaz ao utilizar o sistema de:
@@ -62,7 +63,7 @@ A classe **SistemaMarianaTest**, utiliza JUnit para fazer testes unitários nos 
 
 ## Instruções de Uso
 O usuário navegará por um Menu com 6 opções, conforme ilustra o fluxograma abaixo:
-![fluxo_de_uso](https://user-images.githubusercontent.com/44077820/95736818-1d6b5f80-0c5d-11eb-8983-76218443b281.png)
+![fluxo_de_uso](https://user-images.githubusercontent.com/44077820/95737811-a0d98080-0c5e-11eb-8055-a9776a693cb1.png)
 
 Exemplo de uso do sistema:
 ![exemplo_uso](https://user-images.githubusercontent.com/44077820/95736872-33792000-0c5d-11eb-8359-b906eb9d0158.gif)
