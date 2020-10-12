@@ -54,7 +54,7 @@ Mariana deverá ser capaz ao utilizar o sistema de:
 - Visualizar os alimentos à sua disposição e suas quantidades calóricas
 
 ## Decisões de Projeto
-![diagrama_de_classes](https://user-images.githubusercontent.com/44077820/95736702-f2810b80-0c5c-11eb-890a-b4c6a5b19ff0.png))
+![diagrama_de_classes](https://user-images.githubusercontent.com/44077820/95796295-e465d600-0cc2-11eb-875f-5cf8112ed9b8.png)
 
 A classe **SistemaMarianaTest**, utiliza JUnit para fazer testes unitários nos métodos de validação da classe **SistemaMariana**
 
@@ -68,4 +68,4 @@ O usuário navegará por um Menu com 6 opções, conforme ilustra o fluxograma a
 ![fluxo_de_uso](https://user-images.githubusercontent.com/44077820/95737811-a0d98080-0c5e-11eb-8055-a9776a693cb1.png)
 
 Exemplo de uso do sistema:
-![exemplo_uso](https://user-images.githubusercontent.com/44077820/95736872-33792000-0c5d-11eb-8359-b906eb9d0158.gif)
+![exempo_de_uso](https://user-images.githubusercontent.com/44077820/95796761-1d527a80-0cc4-11eb-845e-951b9c67f60e.gif)
