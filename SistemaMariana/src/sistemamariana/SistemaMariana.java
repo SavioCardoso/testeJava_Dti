@@ -8,17 +8,40 @@ import java.util.regex.Pattern;
 public class SistemaMariana {
     public static List<Cliente> listaCliente = new ArrayList<>();
     public static List<Consulta> listaConsulta = new ArrayList<>();
+    //Declarando lista de alimentos disponíveis separados em seus respectivos grupos
     public static List<Alimentos> listaGrupo1 = new ArrayList<>();
     public static List<Alimentos> listaGrupo2 = new ArrayList<>();
     public static List<Alimentos> listaGrupo3 = new ArrayList<>();
+    //Declarando teclado
     public static Scanner tec = new Scanner(System.in);
+    //Declarando formatador de data
     public static SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-
+    
+    
+    //Método main
     public static void main(String[] args){
-        
         exibirMenu();
     }
     
+    
+    //Método de settar alimentos disponíveis
+    public static void setAlimentos() {
+    	//Verifica se as listas estão vazias
+    	if(listaGrupo1.size() != 0 && listaGrupo2.size() != 0 && listaGrupo3.size() != 0) {
+    		return;
+    	}
+        listaGrupo1.add(new Alimentos("Leite desnatado", 50.0));
+        listaGrupo1.add(new Alimentos("Banana", 60.0));
+        listaGrupo1.add(new Alimentos("Iogurte", 100.0));
+        listaGrupo2.add(new Alimentos("Arroz", 200.0));
+        listaGrupo2.add(new Alimentos("Feijao", 250.0));
+        listaGrupo2.add(new Alimentos("Macarrao", 300.0));
+        listaGrupo3.add(new Alimentos("Batata frita", 400.0));
+        listaGrupo3.add(new Alimentos("Chocolate", 500.0));
+        listaGrupo3.add(new Alimentos("Pizza", 900.0));
+    }
+    
+    //Métodos de exibição
     public static void exibirMenu(){
         int opcao = 0;
        
@@ -33,8 +56,13 @@ public class SistemaMariana {
             System.out.println("5 - Visualizar alimentos");
             System.out.println("6 - Sair");
             System.out.println("======================================");
-
-            opcao = Integer.parseInt(tec.nextLine());
+            
+            String receberOpcao = (tec.nextLine());
+            
+            if(!receberOpcao.matches("[0-9]+")){
+            	exibirMenu();
+            }
+            opcao = Integer.parseInt(receberOpcao);
             switch(opcao){
                 case 1 : {
                     cadastrarCliente();
@@ -187,6 +215,7 @@ public class SistemaMariana {
         });
     }
     
+    //Método de calcular dieta para o paciente
     public static List<String> calculoDieta(Consulta consulta){
     	setAlimentos();
         List<String> listaDieta = new ArrayList<>();
@@ -208,7 +237,8 @@ public class SistemaMariana {
         });
         return listaDieta;
     }
-     
+    
+    //Métodos de validação   
     public static boolean validacaoEmail(String email) {
         boolean isEmailIdValido = false;
         if (email != null && email.length() > 0) {
@@ -232,6 +262,7 @@ public class SistemaMariana {
         return isTelefoneValido;
     }
     
+    //Métodos de recebimento   
     public static String receberEmail(){
         System.out.println("Digite o email do cliente: ");
         String emailCliente = (tec.nextLine());
@@ -358,7 +389,7 @@ public class SistemaMariana {
         }
         return dataConsulta;
     }
-    
+
     public static String receberHorarioConsulta(){
         String horarioConsulta = null;
         
@@ -460,21 +491,6 @@ public class SistemaMariana {
             return receberCaloriasPaciente();
         }
     }
-    
-    public static void setAlimentos() {
-    	//Verifica se as listas estão vazias
-    	if(listaGrupo1.size() != 0 && listaGrupo2.size() != 0 && listaGrupo3.size() != 0) {
-    		return;
-    	}
-        listaGrupo1.add(new Alimentos("Leite desnatado", 50.0));
-        listaGrupo1.add(new Alimentos("Banana", 60.0));
-        listaGrupo1.add(new Alimentos("Iogurte", 100.0));
-        listaGrupo2.add(new Alimentos("Arroz", 200.0));
-        listaGrupo2.add(new Alimentos("Feijao", 250.0));
-        listaGrupo2.add(new Alimentos("Macarrao", 300.0));
-        listaGrupo3.add(new Alimentos("Batata frita", 400.0));
-        listaGrupo3.add(new Alimentos("Chocolate", 500.0));
-        listaGrupo3.add(new Alimentos("Pizza", 900.0));
-    }
+   
 }
 

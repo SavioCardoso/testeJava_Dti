@@ -15,7 +15,8 @@ class SistemaMarianaTest {
 	SistemaMariana mainClass = new SistemaMariana();
     private static SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
     private static List<String> listaTeste = new ArrayList<>();
-
+    
+    //Testando método calculoDieta
 	@Test
 	public void testeRetornaStringQuandoCaloriaMaiorQue650() throws ParseException {	
 		listaTeste.clear();
@@ -57,7 +58,7 @@ class SistemaMarianaTest {
 		assertEquals(mainClass.calculoDieta(consulta), listaTeste);
 	}
 
-
+	//Testando método validacaoEmail
 	@Test
 	public void testeRetornaFalsoEmailNaoValido() {	
 		String email1 = "emailerrado";
@@ -73,7 +74,8 @@ class SistemaMarianaTest {
 		
 		assertTrue(mainClass.validacaoEmail(email3));
 	}
-
+	
+	//Testando método validacaoTelefone
 	@Test
 	public void testRetornaFalsoTelefoneNaoValido() {
 		String telefone1 = "123";
