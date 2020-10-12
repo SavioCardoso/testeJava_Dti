@@ -10,7 +10,7 @@ Sistema Desenvolvido em Java, utilizando o framework JUnit
 ## Premissas Assumidas
 Mariana dispõe de 9 alimentos, que serão divididos em 3 grupos, de acordo com sua quantidade calórica:
 
-========== GRUPO 1 ==========
+**========== GRUPO 1 ==========**
 
 "Leite desnatado", 50.0 Kcal
 
@@ -19,7 +19,7 @@ Mariana dispõe de 9 alimentos, que serão divididos em 3 grupos, de acordo com 
 "Iogurte", 100.0 Kcal
  
  
-========== GRUPO 2 ==========
+**========== GRUPO 2 ==========**
 
 "Arroz", 200.0 Kcal
 
@@ -28,7 +28,7 @@ Mariana dispõe de 9 alimentos, que serão divididos em 3 grupos, de acordo com 
 "Macarrao", 300.0 Kcal
 
 
-========== GRUPO 3 ==========
+**========== GRUPO 3 ==========**
 
 "Batata frita", 400.0 Kcal
 
@@ -51,7 +51,7 @@ Mariana deverá ser capaz ao utilizar o sistema de:
 - Visualizar os alimentos à sua disposição e suas quantidades calóricas
 
 ## Decisões de Projeto
-![Diagrama de Classes](Desktop/diagrama_de_classes.png)
+![diagrama_de_classes](https://user-images.githubusercontent.com/44077820/95736702-f2810b80-0c5c-11eb-890a-b4c6a5b19ff0.png))
 
 A classe **SistemaMarianaTest**, utiliza JUnit para fazer testes unitários nos métodos de validação da classe **SistemaMariana**
 
@@ -62,7 +62,7 @@ A classe **SistemaMarianaTest**, utiliza JUnit para fazer testes unitários nos 
 
 ## Instruções de Uso
 O usuário navegará por um Menu com 6 opções, conforme ilustra o fluxograma abaixo:
-![Fluxo de Uso](Desktop/fluxo_de_uso.png)
+![fluxo_de_uso](https://user-images.githubusercontent.com/44077820/95736818-1d6b5f80-0c5d-11eb-8983-76218443b281.png)
 
 Exemplo de uso do sistema:
-![Fluxo de Uso](Desktop/exemplo_de_uso.gif)
+![exemplo_uso](https://user-images.githubusercontent.com/44077820/95736872-33792000-0c5d-11eb-8359-b906eb9d0158.gif)
