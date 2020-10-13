@@ -56,7 +56,6 @@ Mariana deverá ser capaz ao utilizar o sistema de:
 ## Decisões de Projeto
 ![diagrama_de_classes](https://user-images.githubusercontent.com/44077820/95796295-e465d600-0cc2-11eb-875f-5cf8112ed9b8.png)
 
-A classe **SistemaMarianaTest**, utiliza JUnit para fazer testes unitários nos métodos de validação da classe **SistemaMariana**
 
 ## Instruções de Build
 - Faça o download do [repositório](https://github.com/SavioCardoso/testeJava_Dti/)
